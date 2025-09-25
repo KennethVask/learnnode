@@ -58,5 +58,5 @@ answer = num > 10 ? 'Suurem' : 'Väiksem'; // shorthand if
 console.log(answer);
 
 let value = 'asdads';
-answer = value ?? 'Something else'; // null coalescing operator; do value if exists
+answer = value ?? 'Something else'; // null coalescing operator; do value if exists else other
 console.log(answer);
