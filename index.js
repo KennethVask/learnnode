@@ -1,38 +1,8 @@
-let sum = 0;
-for(let i=0; i<1_000_000; i++) {
-    sum += i;
-}
-console.log(sum);
-
-for(let i = 10; i>=0; i--) {
-    console.log(i);
-}
-
-for(let i=1; i=1_000_000; i*2) {
-    console.log(i);
-}
-
-let time = Date.now();
-let num = 0;
-while(Date.now() < time+1000) {
-    num++;
-}
-console.log(num);
-
-num = 10;
-while(num < 10) {
-    console.log('WHILE');
-}
-
-do {
-    console.log ('DO')
-} while(num < 10);
-
-function recursion(num) {
-    if(num<10) {
-        console.log(num);
-        recursion(num+1);
-    }
-}
-
-recursion(0);
+let text = 'Hello World';
+console.log(text[3]);
+let array = [1, 2, 3];
+let num = 2;
+num.toExponential();
+array.fill(1,3,6);
+console.log(text.length);
+console.log(Math.PI);
