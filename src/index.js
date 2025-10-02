@@ -1,3 +1,6 @@
+import './style.css';
+
+
 console.log('hello world');
 import module from "./module.js";
 
