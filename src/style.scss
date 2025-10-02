@@ -1,5 +1,4 @@
-@use 'sass:color';
-$bgcolor: #BADA55;
-html, body {
-    background: color.scale($bgcolor, $lightness: -30%);
-};
+@use "bootstrap/scss/bootstrap" with (
+    $primary: coral,
+
+);
