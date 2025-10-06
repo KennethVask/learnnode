@@ -1,4 +1,11 @@
 {% extends 'src/views/partials/layout.njk' %}
 {% block content %}
     <h1>Kennethi sait</h1>
+    <h3>Hello {{ name }}</h3>
+    <h5>Fruits:</h5>
+    <ul>
+        {% for fruit in fruits %}
+            <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
