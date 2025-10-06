@@ -15,7 +15,7 @@ export default {
     compress: true,
     port: 9000,
   },
-   module: {
+  module: {
     rules: [
       {
         test: /\.css$/i,
@@ -24,10 +24,10 @@ export default {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader", 
+          "style-loader",
           "css-loader",
           {
-            loader:'sass-loader',
+            loader: 'sass-loader',
             options: {
               sassOptions: {
                 quietDeps: true
@@ -36,11 +36,27 @@ export default {
           }
         ],
       },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: 'simple-nunjucks-loader',
+            options: {}
+          }
+        ]
+      }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
+      template: './src/views/index.njk'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'About.html',
+      template: './src/views/About.njk'
+    }), new HtmlWebpackPlugin({
+      filename: 'Contacts.html',
+      template: './src/views/Contacts.njk'
+    }),
   ],
 };
