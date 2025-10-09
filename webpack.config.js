@@ -1,6 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { stripVTControlCharacters } from 'util';
+import { VueLoaderPlugin } from 'vue-loader';
+import webpack from "webpack";
 
 
 export default {
@@ -38,11 +39,21 @@ export default {
           }
         ],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+     new VueLoaderPlugin(),
+     new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'flase',
+      __VUE_PROD_DEVTOOLS__: 'false',
+     }), 
   ],
 };
