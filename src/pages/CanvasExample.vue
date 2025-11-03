@@ -1,42 +1,65 @@
 <script setup>
 import { onMounted } from 'vue';
-
 let x = 95;
 let y = 50;
-
-onMounted(()=> {
+let balls = [];
+let r = 255;
+let b = 255;
+let g = 255;
+onMounted(() => {
     let mycanvas = document.querySelector('#mycanvas');
     console.log(mycanvas);
     let ctx = mycanvas.getContext('2d');
-    
+
     setInterval(() => {
+        balls = balls.map(ball => {
+            return {
+                x: ball.x,
+                y: ball.y,
+                radius: ball.radius - 1,
+                red: ball.red-10,
+                green: ball.green+20,
+                blue: ball.blue+5,
+            }
+        }).filter(ball => ball.radius > 0);
+
+        r = Math.round(Math.random()*255);
+        g = Math.round(Math.random()*255);
+        b = Math.round(Math.random()*255);
+
+
+        balls.push({
+            x: x,
+            y: y,
+            radius: 40,
+            red: r,
+            green: g,
+            blue: b,
+        });
+
         ctx.clearRect(0, 0, 1600, 800)
-        ctx.beginPath();
-        ctx.arc(x, y, 40, 0, 2 * Math.PI);
-        ctx.fillStyle = 'red';
-        ctx.fill();
-        
+
+        balls.forEach(ball => {
+
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
+            ctx.fillStyle =`rgb(${ball.red},${ball.green},${ball.blue})`;
+            ctx.fill();
+        })
+
+
 
     }, 16);
 
 });
-function keydown(){
-    console.log(event );
-    if(event.code === 'KeyD'){
-        x+=5;
-    }
-    if(event.code === 'KeyA'){
-        x-=5;
-    }
-    if(event.code === 'KeyS'){
-        y+=5;
-    }
-    if(event.code === 'KeyW'){
-        y-=5;
-    }
+
+function mousemove(event) {
+    console.log(event);
+    x = event.offsetX;
+    y = event.offsetY;
 }
 </script>
 
 <template>
-    <canvas id="mycanvas" tabindex="1" width="1600" height="800" @keydown="keydown"></canvas>
+    <canvas id="mycanvas" tabindex="1" width="1600" height="800" @mousemove="mousemove"></canvas>
 </template>
