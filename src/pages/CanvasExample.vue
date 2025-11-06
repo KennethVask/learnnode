@@ -1,11 +1,13 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 let x = 95;
 let y = 50;
 let balls = [];
 let r = 255;
-let b = 255;
-let g = 255;
+let b = 0;
+let g = 0;
+let radius = ref(40);
+
 onMounted(() => {
     let mycanvas = document.querySelector('#mycanvas');
     console.log(mycanvas);
@@ -31,7 +33,7 @@ onMounted(() => {
         balls.push({
             x: x,
             y: y,
-            radius: 40,
+            radius: radius.value,
             red: r,
             green: g,
             blue: b,
@@ -61,5 +63,9 @@ function mousemove(event) {
 </script>
 
 <template>
+    <div>
+        <input v-model="radius" type="range" min="10" max="100" step="1">{{ radius }}
+    </div>
+    
     <canvas id="mycanvas" tabindex="1" width="1600" height="800" @mousemove="mousemove"></canvas>
 </template>
