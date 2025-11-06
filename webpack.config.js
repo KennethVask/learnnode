@@ -10,6 +10,7 @@ export default {
     filename: 'main.js',
     path: path.resolve(import.meta.dirname, 'dist'),
     clean: true,
+    assetModuleFilename: '[name][ext]',
   },
   devServer: {
     static: {
@@ -45,17 +46,21 @@ export default {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-     new VueLoaderPlugin(),
-     new webpack.DefinePlugin({
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'flase',
       __VUE_PROD_DEVTOOLS__: 'false',
-     }), 
+    }),
   ],
 };
