@@ -7,7 +7,7 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "serve": "webpack serve --mode development",
-    "deploy": "npm run build && surge ./dist kenneth-vask.surge.sh"
+    "deploy": "npm run build && surge ./dist kenneth-vask2.surge.sh"
   },
   "repository": {
     "type": "git",

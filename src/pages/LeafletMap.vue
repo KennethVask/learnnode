@@ -14,7 +14,7 @@ let coords = ref({
         {{ zoom }}
         <button class="button is-primary" @click="coords={lat: 59.41641, lng:24.79871}">Go to Airport</button>
     </div>
-    <Leaflet :lat="coords.lat" :lng="coords.lng" :zoom="19"></Leaflet>
+    <Leaflet :lat="coords.lat" :lng="coords.lng" :zoom="zoom"></Leaflet>
     <Leaflet :lat="24.74344" :lng="59.42690" :zoom="5"></Leaflet>
 </template>
 
