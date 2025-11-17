@@ -14,6 +14,7 @@ import CookieClicker from './pages/CookieClicker.vue';
 import CanvasExample from './pages/CanvasExample.vue';
 import LeafletMap from './pages/LeafletMap.vue';
 import WebApis from './pages/WebApis.vue';
+import Chat from './pages/chat.vue';
 
 const routes = [
   { path: '/', component: ToDo, name: 'ToDo' },
@@ -24,6 +25,7 @@ const routes = [
   { path: '/canvas', component: CanvasExample, name: 'Canvas', meta: {noContainer:true} },
   { path: '/leaflet', component: LeafletMap, name: 'Leaflet', meta: {noContainer:true} },
   { path: '/webapis', component: WebApis, name: 'WebAPIs', },
+  { path: '/chat', component: Chat, name: 'Chat', },
 ];
 
 export const router = createRouter({
