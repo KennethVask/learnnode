@@ -2,15 +2,8 @@ function write(text) {
     process.stdout.write(text);
 }
 
-import readline from 'readline';
+import chalk from 'chalk';
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
-rl.question('What is your name?', name => {
-    console.log(`Hello ${name}!!!!`);
-    rl.close();
-});
-
+write(chalk.red.bgYellow.strikethrough('DANGER!!!!!'));
+write(chalk.bgAnsi256(67)('COLOR'));
+write(chalk.bgRgb(255,0,0)('COLOR'));
