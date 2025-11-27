@@ -5,6 +5,16 @@ let data = await res.json();
 console.log(data);
 let joke = ref('');
 joke.value = data.value;
+
+
+
+
+try {
+    let res = await fetch('https://xkcd.com/');
+    console.log(res());
+}catch(err){
+    console.log(err);
+}
 </script>
 
 <template>

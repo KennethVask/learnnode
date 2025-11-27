@@ -6,7 +6,7 @@ let anwsers = await inquirer.prompt([
         name: 'name',
         message: 'What is your name?',
     },
-        {
+    {
         type: 'number',
         name: 'age',
         message: 'Waht is your age?',
