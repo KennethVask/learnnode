@@ -10,7 +10,6 @@ if(!fs.existsSync(cacheDir)){
 
 const BASE_URL = 'https://wumo.com';
 let url = BASE_URL + '/wumo';
-console.log(url);
 for(let i = 0; i<10; i++){
     let body;
     if(fs.existsSync(cacheDir + `/${md5(url)}.html`)){
